@@ -3,7 +3,6 @@
 import csv
 import hashlib
 import string
-import glob
 import shelve
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -44,7 +43,7 @@ def import_file(lines):
 	db.close()
 	
 def import_all():
-	files = import_dropbox(True)
+	files = import_dropbox(False)
 	for f in files:
 		import_file(f)
 

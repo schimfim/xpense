@@ -175,6 +175,6 @@ tree = {}
 apply_rules(db.itervalues(), tree)
 #print_items(db.itervalues())
 db.close()
-#print_all(tree, False  )
-print_missing(tree)
+print_all(tree, False  )
+#print_missing(tree)
 

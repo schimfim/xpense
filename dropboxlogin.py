@@ -2,22 +2,35 @@ from dboxauth import app_key, app_secret, access_type
 
 import webbrowser
 from dropbox import client, rest, session
-import keychain
+#import keychain
 import pickle
-import console
+#import console
+
+def get_password():
+	try:
+		with open('dboxtoken.py') as f:
+			pwd = pickle.load(f)
+	except IOError:
+		pwd = None
+	return pwd
+
+def set_password(token):
+	with open('dboxtoken.py', 'w') as f:
+		pickle.dump(token, f)
 
 def get_request_token():
-	console.clear()
+	#console.clear()
 	print 'Getting request token...'
 	sess = session.DropboxSession(app_key, app_secret, access_type)
 	request_token = sess.obtain_request_token()
 	url = sess.build_authorize_url(request_token)
-	console.clear()
-	webbrowser.open(url, modal=True)
+	#console.clear()
+	webbrowser.open(url)
+	raw_input('Press return when done with browser')
 	return request_token
 
 def get_access_token():
-	token_str = keychain.get_password('dropbox', app_key)
+	token_str = get_password()
 	if token_str:
 		key, secret = pickle.loads(token_str)
 		return session.OAuthToken(key, secret)
@@ -25,7 +38,7 @@ def get_access_token():
 	sess = session.DropboxSession(app_key, app_secret, access_type)
 	access_token = sess.obtain_access_token(request_token)
 	token_str = pickle.dumps((access_token.key, access_token.secret))
-	keychain.set_password('dropbox', app_key, token_str)
+	set_password(token_str)
 	return access_token
 
 def get_client():
