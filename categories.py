@@ -18,10 +18,12 @@
         "TELEKOM"
       ], 
       "Kinder": [
-        "FAM.ANTEIL KITA", 
+        "FAM.ANTEIL KITA",
+		"IDA REINE WINDELN",
         "MUSIKALISCHE FRUEHERZIEHUNG", 
         "BETREUUNGSENTGELT", 
-        "RWsoft"
+        "RWsoft", 
+        "RWSOFT"
       ], 
       "Einkommen": [
         "VERDIENSTABRECHNUNG", 
@@ -32,8 +34,11 @@
       "Steuer": [
         "GRUNDST"
       ], 
-      "Diverse": [
+      "Diverse1": [
         "BLAU-WEISS-ROT"
+      ], 
+      "Haus1": [
+        "GEBUEHRENBESCHEID STADTREINIGUNG"
       ]
     }
   }, 
@@ -46,7 +51,8 @@
     "Erstattet": {
       "Arzt": [
         "LOGOPAEDIE", 
-        "MEDISERV"
+        "MEDISERV", 
+        "DGPAR"
       ]
     }
   }, 
@@ -78,7 +84,8 @@
         "KREDITKARTE"
       ], 
       "GA-Vdorf": [
-        "HH-VOLK"
+        "HH-VOLK", 
+        "GA NR06006361"
       ]
     }, 
     "Konsum": {
@@ -89,6 +96,7 @@
     }, 
     "Freizeit": {
       "Restaurant": [
+        "RESTAURANT", 
         "BLOCK HOUSE"
       ]
     }
