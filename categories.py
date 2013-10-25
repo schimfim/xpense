@@ -23,7 +23,8 @@
         "MUSIKALISCHE FRUEHERZIEHUNG", 
         "BETREUUNGSENTGELT", 
         "RWsoft", 
-        "RWSOFT"
+        "RWSOFT",
+        "ELTERNKASSE EULE HORT"
       ], 
       "Einkommen": [
         "VERDIENSTABRECHNUNG", 
@@ -38,7 +39,8 @@
         "BLAU-WEISS-ROT"
       ], 
       "Haus1": [
-        "GEBUEHRENBESCHEID STADTREINIGUNG"
+        "GEBUEHRENBESCHEID STADTREINIGUNG",
+        "RUNDFUNKBEITRAG"
       ]
     }
   }, 
@@ -52,7 +54,8 @@
       "Arzt": [
         "LOGOPAEDIE", 
         "MEDISERV", 
-        "DGPAR"
+        "DGPAR",
+        "Ueberweisung an PVS"
       ]
     }
   }, 
