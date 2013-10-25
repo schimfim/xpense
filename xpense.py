@@ -173,10 +173,12 @@ def print_all(atree, details=False):
 							print '      * ' + str(i['amount'])
 
 
-def print_missing(atree):
+def print_missing(atree, save=True):
 	"""
 	Print all items in tree without subtype assignment
+	Optionally save list to missing.py
 	"""
+	misses = []
 	for mo in sorted(atree.keys()):
 		# TODO: print years
 		print '*** Month: ' + mo
@@ -188,7 +190,12 @@ def print_missing(atree):
 		subs = tipes['Ohne']
 		items = subs['Ohne']
 		for i in items['items']:
-			print 'note:', str(i['note'])
+			s = str(i['note'])
+			print 'note:', s
+			misses.append('"' + s + '"\n')
+	if save:
+		with open('missing.py', 'w') as f:
+			f.writelines(misses)
 
 # CLI
 import cmd
