@@ -141,9 +141,9 @@ def apply_rules(items, item_tree, cats, rules):
 			# TODO: use english types
 			i['subtype'] = 'Ohne'
 			i['type'] = 'Ohne'
-			i['category'] = 'Ohne'
+			i['category'] = 'Variabel'
 			if item_tree != None:
-				insert(item_tree, i, mo, 'Ohne', 'Ohne', 'Ohne')
+				insert(item_tree, i, mo, 'Variabel', 'Ohne', 'Ohne')
 
 
 def print_all(atree, details=False):
@@ -184,11 +184,11 @@ def print_missing(atree, save=True):
 		print '*** Month: ' + mo
 		categories = atree[mo]
 		try:
-			tipes = categories['Ohne']
+			tipes = categories['Variabel']
+			subs = tipes['Ohne']
+			items = subs['Ohne']
 		except KeyError:
 			continue
-		subs = tipes['Ohne']
-		items = subs['Ohne']
 		for i in items['items']:
 			s = str(i['note'])
 			print 'note:', s
