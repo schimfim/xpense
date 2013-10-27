@@ -2,7 +2,8 @@
   "Fix": {
     "Monat": {
       "Auto": [
-        "LASTSCHRIFT ING-DIBA"
+        "LASTSCHRIFT ING-DIBA",
+        "RAHMENKREDIT MONATLICHE ZINSEN"
       ], 
       "Haus": [
         "WASSERABSCHLAG", 
@@ -24,7 +25,8 @@
         "BETREUUNGSENTGELT", 
         "RWsoft", 
         "RWSOFT",
-        "ELTERNKASSE EULE HORT"
+        "ELTERNKASSE EULE HORT",
+        "etreuungsentgelt Samuel"
       ], 
       "Einkommen": [
         "VERDIENSTABRECHNUNG", 
@@ -36,7 +38,8 @@
         "GRUNDST"
       ], 
       "Diverse1": [
-        "BLAU-WEISS-ROT"
+        "BLAU-WEISS-ROT",
+        "Saldo der Abschlussposten"
       ], 
       "Haus1": [
         "GEBUEHRENBESCHEID STADTREINIGUNG",
@@ -55,7 +58,10 @@
         "LOGOPAEDIE", 
         "MEDISERV", 
         "DGPAR",
-        "Ueberweisung an PVS"
+        "Ueberweisung an PVS",
+        "Ueberweisung an DR. BEN HARM",
+        "Ueberweisung an UNIV.-KLINI. EPPENDORF",
+        "Ueberweisung an PROF.DR.MED."
       ]
     }
   }, 
@@ -73,10 +79,13 @@
         "IHR REAL", 
         "GETRAENKE", 
         "SKY MARKT", 
-        "NETTO"
+        "NETTO",
+        "LIDL"
       ], 
       "Benzin": [
-        "SHELL"
+        "SHELL",
+        "FTS WIESBADEN",
+        "AUTOM.MOELLER"
       ]
     }, 
     "Bar": {
@@ -89,6 +98,9 @@
       "GA-Vdorf": [
         "HH-VOLK", 
         "GA NR06006361"
+      ],
+      "GA sonst." : [
+      		"GA NR"
       ]
     }, 
     "Konsum": {
