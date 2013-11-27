@@ -7,6 +7,8 @@ import shelve
 import logging
 logging.basicConfig(level=logging.INFO)
 from dboximp import import_dropbox
+from re import match
+pat = '0?([0-9]+)\.([0-9]+)\.([0-9]+)'
 
 dbname = 'xpense.db'
 
@@ -27,7 +29,8 @@ def import_file(lines):
 		# gather data
 		amt = str2f(row['Soll']) + str2f(row['Haben'])
 		(date, note) = row['Buchungstag'], row['Verwendungszweck']
-		(dy,mo,yr) = string.split(date, '.')
+		rep = match(pat, date)
+		(dy,mo,yr) = rep.groups()
 		key = hashlib.md5(date + amt + note).hexdigest()
 		d = dict(year=yr, orig_year=yr, month=mo, orig_month=mo, orig_day=dy, day=dy, amount=float(amt), note=note, type='', subtype='', category='')
 		# write to db
@@ -42,8 +45,8 @@ def import_file(lines):
 	logging.info('Skipped: %i', skipped)
 	db.close()
 	
-def import_all():
-	files = import_dropbox(False)
+def import_all(force = False):
+	files = import_dropbox(force)
 	for f in files:
 		import_file(f)
 
