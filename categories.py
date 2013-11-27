@@ -44,6 +44,9 @@
       "Haus1": [
         "GEBUEHRENBESCHEID STADTREINIGUNG",
         "RUNDFUNKBEITRAG"
+      ],
+      "Kinder1": [
+      		"STEPHANIE JUNG"
       ]
     }
   }, 
@@ -62,7 +65,10 @@
         "Ueberweisung an DR. BEN HARM",
         "Ueberweisung an UNIV.-KLINI. EPPENDORF",
         "Ueberweisung an PROF.DR.MED."
-      ]
+      ],
+      "Spesen": [
+      		"KUEHNE & NAGEL AG"
+      	]
     }
   }, 
   "Variabel": {
@@ -80,7 +86,8 @@
         "GETRAENKE", 
         "SKY MARKT", 
         "NETTO",
-        "LIDL"
+        "LIDL",
+        "LEHMANNS BIO SERVICE"
       ], 
       "Benzin": [
         "SHELL",
@@ -106,13 +113,17 @@
     "Konsum": {
       "Diverse": [
         "PFLKOELLE", 
-        "HAGEL HAIRCOMPANY AEZ"
+        "HAGEL HAIRCOMPANY AEZ",
+        "AMAZON",
+        "GRAVIS"
       ]
     }, 
     "Freizeit": {
       "Restaurant": [
         "RESTAURANT", 
-        "BLOCK HOUSE"
+        "BLOCK HOUSE",
+        "DORFKRUG",
+        "QUELLENHOF"
       ]
     }
   }
