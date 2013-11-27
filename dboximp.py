@@ -3,21 +3,21 @@ from dropboxlogin import get_client
 import codecs
 import shelve
 import logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 def import_dropbox(force = False):
 	'''
 	Returns list of arrays of cvs lines
 	Lines are preprocessed according to bank's format.
 	'''
-	db = shelve.open('dropboxfiles.db')
+	db = shelve.open('dropboxfiles')
 	client = get_client()
 	meta = client.metadata('/xpense')
 	files = meta['contents']
 	res = []
 	for f in files:
 		if f['is_dir']: continue 
-		path = f['path']
+		path = str(f['path'])
 		if path in db:
 			logging.info('Already imported file %s',
 			             path)
@@ -26,7 +26,7 @@ def import_dropbox(force = False):
 				continue
 			else: 
 				logging.info('... forcing import')
-		db[path] = True
+		db[path] = 'True'
 		file, meta = client.get_file_and_metadata(path)
 		lines = file.read().splitlines()
 		file.close()
@@ -43,5 +43,5 @@ def import_dropbox(force = False):
 	
 if __name__ == '__main__':
 	# caution: this will set files to imported!
-	f = import_dropbox()
+	f = import_dropbox(False)
 
