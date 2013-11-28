@@ -118,6 +118,25 @@ def insert(tree, item, cat, type, sub):
 	subs['_sum'] += item['amount']
 	tipes['_sum'] += item['amount']
 
+def align(item):
+	"""
+	Align date in item to month boundary.
+	item is modified!
+	"""
+	mo = int(item['orig_month'])
+	dy = int(item['orig_day'])
+	yr = int(item['orig_year'])
+	
+	if dy > 15:
+		# roll over to next month
+		dy = 1
+		mo += 1
+		if mo == 13:
+			mo = 1
+			yr += 1
+		dy = str(dy)
+		item.update(day=dy, month=mo, year=yr)
+	
 
 def apply_rules(items, item_tree, cats, rules):
 	"""
@@ -145,6 +164,7 @@ def apply_rules(items, item_tree, cats, rules):
 			cat = 'Variabel'
 		
 		# TODO: Align month/year for category 'Fix'
+		align(i)
 		
 		if item_tree is not None:
 				insert(item_tree, i, cat, type, sub)
