@@ -93,13 +93,14 @@ def match(s, rules):
 	return ''
 
 
-def insert(tree, item, mo, cat, type, sub):
+def insert(tree, item, cat, type, sub):
 	"""
 	Insert account entry "item" into category tree "tree" at location { mo : cat : type : sub }.
 	mo: month, cat: category, type: expense type, sub: subtype.
 	At each node (cat/type/sub) the sum of the included account entries is maintained
 	in field '_sum'.
 	"""
+	mo = item['month']
 	if mo not in tree:
 		tree[mo] = {}
 	cats = tree[mo]
@@ -125,25 +126,28 @@ def apply_rules(items, item_tree, cats, rules):
 	Items are inserted into tree 'item_tree' at matching node
 	"""
 	for i in items:
-		# Find subcategory for item i based on field 'note'
+		# Find subcategory for item i based on
+		# field 'note'
 		s = match(i['note'], rules)
-		mo = i['month']
 		if s:
-			# If found, derive type and category from subcategory, based on global 'cats'
+			# If found, derive type and category from
+			# subcategory, based on 'cats'
 			t = cats[s]
-			i['subtype'] = s
-			i['type'] = t[0]
-			i['category'] = t[1]
-			if item_tree is not None:
-				insert(item_tree, i, mo, t[1], t[0], s)
+			sub = s
+			type = t[0]
+			cat = t[1]
+
 		else:
-			# No subtype found, assign to 'Ohne' category
+			# No subtype found, assign to 'Variabel' category
 			# TODO: use english types
-			i['subtype'] = 'Ohne'
-			i['type'] = 'Ohne'
-			i['category'] = 'Variabel'
-			if item_tree != None:
-				insert(item_tree, i, mo, 'Variabel', 'Ohne', 'Ohne')
+			sub = 'Ohne'
+			type = 'Ohne'
+			cat = 'Variabel'
+		
+		# TODO: Align month/year for category 'Fix'
+		
+		if item_tree is not None:
+				insert(item_tree, i, cat, type, sub)
 
 
 def print_all(atree, details=False):
