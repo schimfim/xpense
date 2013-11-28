@@ -134,7 +134,9 @@ def align(item):
 		if mo == 13:
 			mo = 1
 			yr += 1
-		dy = str(dy)
+		dy = '{:02d}'.format(dy)
+		mo = '{:02d}'.format(mo)
+		yr = '{:d}'.format(yr)
 		item.update(day=dy, month=mo, year=yr)
 	
 
